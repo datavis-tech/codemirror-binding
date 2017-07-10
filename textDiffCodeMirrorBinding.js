@@ -2,7 +2,7 @@
 module.exports = TextDiffBinding;
 
 // Accepts an instance of CodeMirror.
-function TextDiffBinding(nodeMirror) {
+function TextDiffBinding(codeMirror) {
   this.codeMirror = codeMirror;
 }
 

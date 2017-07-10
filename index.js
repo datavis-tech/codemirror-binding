@@ -1,8 +1,8 @@
 // This file began as a copy of https://github.com/share/sharedb-string-binding/blob/master/index.js
 var TextDiffBinding = require('./textDiffCodeMirrorBinding');
 
-function CodeMirrorBinding(element, doc, path) {
-  TextDiffBinding.call(this, element);
+function CodeMirrorBinding(codeMirror, doc, path) {
+  TextDiffBinding.call(this, codeMirror);
   this.doc = doc;
   this.path = path || [];
   this._opListener = null;
@@ -25,13 +25,14 @@ CodeMirrorBinding.prototype.destroy = function() {
 CodeMirrorBinding.prototype.attachElement = function() {
   var binding = this;
   this._inputListener = function() {
+    console.log("HERE")
     binding.onInput();
   };
-  this.element.addEventListener('input', this._inputListener, false);
+  this.codeMirror.on('change', this._inputListener);
 };
 
 CodeMirrorBinding.prototype.detachElement = function() {
-  this.element.removeEventListener('input', this._inputListener, false);
+  this.codeMirror.off('change', this._inputListener);
 };
 
 CodeMirrorBinding.prototype.attachDoc = function() {
