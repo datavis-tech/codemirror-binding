@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>ShareDB Textarea</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/codemirror.min.css">
 <style>
 body {
   background: #ddd;
@@ -15,14 +16,15 @@ body {
 textarea {
   font: 14px/1.3 sans-serif;
   padding: 4px 8px;
-  height: 100%;
+  height: 50%;
   width: 100%;
   box-sizing: border-box;
 }
 </style>
 
 <div id="container">
-  <textarea autofocus></textarea>
+  <textarea id="textarea-test" autofocus></textarea>
+  <textarea id="codemirror-test" autofocus></textarea>
 </div>
 
 <script src="dist/bundle.js"></script>

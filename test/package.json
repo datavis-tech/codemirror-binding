@@ -21,6 +21,6 @@
     "ws": "^1.1.0"
   },
   "devDependencies": {
-    "browserify": "^13.0.1"
+    "browserify": "^13.3.0"
   }
 }

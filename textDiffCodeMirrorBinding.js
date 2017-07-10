@@ -1,8 +1,9 @@
 // This file began as a copy of https://github.com/share/text-diff-binding/blob/master/index.js
 module.exports = TextDiffBinding;
 
-function TextDiffBinding(element) {
-  this.element = element;
+// Accepts an instance of CodeMirror.
+function TextDiffBinding(nodeMirror) {
+  this.codeMirror = codeMirror;
 }
 
 TextDiffBinding.prototype._get =
@@ -12,14 +13,17 @@ TextDiffBinding.prototype._remove = function() {
 };
 
 TextDiffBinding.prototype._getElementValue = function() {
-  var value = this.element.value;
+  var value = this.codeMirror.getValue();
   // IE and Opera replace \n with \r\n. Always store strings as \n
   return value.replace(/\r\n/g, '\n');
 };
 
 TextDiffBinding.prototype._getInputEnd = function(previous, value) {
-  if (this.element !== document.activeElement) return null;
-  var end = value.length - this.element.selectionStart;
+  // TODO adapt this to CodeMirror (currently for textarea)
+  if (this.codeMirror !== document.activeElement) return null;
+  
+  // TODO adapt this to CodeMirror (currently for textarea)
+  var end = value.length - this.codeMirror.selectionStart;
   if (end === 0) return end;
   if (previous.slice(previous.length - end) !== value.slice(value.length - end)) return null;
   return end;
@@ -83,12 +87,17 @@ function removeCursorTransform(index, length, cursor) {
 }
 
 TextDiffBinding.prototype._transformSelectionAndUpdate = function(index, length, transformCursor) {
-  if (document.activeElement === this.element) {
-    var selectionStart = transformCursor(index, length, this.element.selectionStart);
-    var selectionEnd = transformCursor(index, length, this.element.selectionEnd);
-    var selectionDirection = this.element.selectionDirection;
+  // TODO adapt this to CodeMirror (currently for textarea)
+  if (document.activeElement === this.codeMirror) {
+  // TODO adapt this to CodeMirror (currently for textarea)
+    var selectionStart = transformCursor(index, length, this.codeMirror.selectionStart);
+  // TODO adapt this to CodeMirror (currently for textarea)
+    var selectionEnd = transformCursor(index, length, this.codeMirror.selectionEnd);
+  // TODO adapt this to CodeMirror (currently for textarea)
+    var selectionDirection = this.codeMirror.selectionDirection;
     this.update();
-    this.element.setSelectionRange(selectionStart, selectionEnd, selectionDirection);
+  // TODO adapt this to CodeMirror (currently for textarea)
+    this.codeMirror.setSelectionRange(selectionStart, selectionEnd, selectionDirection);
   } else {
     this.update();
   }
@@ -97,5 +106,6 @@ TextDiffBinding.prototype._transformSelectionAndUpdate = function(index, length,
 TextDiffBinding.prototype.update = function() {
   var value = this._get();
   if (this._getElementValue() === value) return;
-  this.element.value = value;
+  // TODO adapt this to CodeMirror (currently for textarea)
+  this.codeMirror.value = value;
 };
