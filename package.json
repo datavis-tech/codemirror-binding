@@ -6,14 +6,14 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/curran/CodeMirrorBinding.git"
+    "url": "git+https://github.com/curran/codemirror-binding.git"
   },
   "author": "Curran Kelleher",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/curran/CodeMirrorBinding/issues"
+    "url": "https://github.com/curran/codemirror-binding/issues"
   },
-  "homepage": "https://github.com/curran/CodeMirrorBinding#readme",
+  "homepage": "https://github.com/curran/codemirror-binding#readme",
   "dependencies": {},
   "devDependencies": {
     "text-diff-binding": "^1.1.0",
