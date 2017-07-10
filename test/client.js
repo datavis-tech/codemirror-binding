@@ -27,4 +27,8 @@ doc.subscribe(function(err) {
   // Set up the CodeMirror binding.
   var codeMirrorBinding = new CodeMirrorBinding(codeMirror, doc);
   codeMirrorBinding.setup();
+
+  setInterval(function () {
+    doc.submitOp({ p:[5], si: 'd' });
+  }, 1000);
 });
