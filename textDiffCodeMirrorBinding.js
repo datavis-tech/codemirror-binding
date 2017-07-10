@@ -87,38 +87,20 @@ function removeCursorTransform(index, length, cursor) {
 }
 
 TextDiffBinding.prototype._transformSelectionAndUpdate = function(index, length, transformCursor) {
-  console.log("FDAS")
-  console.log(this.codeMirror.getCursor("from"))
-  console.log(this.codeMirror.getCursor("to"))
-
   if (this.codeMirror.hasFocus()) {
+    var rawSelectionStartPos = this.codeMirror.getCursor("from");
+    var rawSelectionStart = this.codeMirror.indexFromPos(rawSelectionStartPos);
+    var selectionStart = transformCursor(index, length, rawSelectionStart);
+    var selectionStartPos = this.codeMirror.posFromIndex(selectionStart);
 
-    var rawSelectionStartCoords = this.codeMirror.getCursor("from");
-
-    // TODO make this work
-    //var rawSelectionStart = cursorCoordsToIndex(rawSelectionStartCoords);
-    //var selectionStart = transformCursor(index, length, rawSelectionStart);
-
-    // TODO adapt this to CodeMirror (currently for textarea)
-    //var selectionStart = transformCursor(index, length, this.codeMirror.selectionStart);
-    //var selectionStart = transformCursor(index, length, this.codeMirror.getCursor("from"));
-
-    // TODO adapt this to CodeMirror (currently for textarea)
-    //var selectionEnd = transformCursor(index, length, this.codeMirror.selectionEnd);
-    //var selectionEnd = transformCursor(index, length, this.codeMirror.getCursor("to"));
-    var rawSelectionEndCoords = this.codeMirror.getCursor("to");
-
-    //// TODO adapt this to CodeMirror (currently for textarea)
-    ////var selectionDirection = this.codeMirror.selectionDirection;
-    //var selectionDirection = "forward";//this.codeMirror.selectionDirection;
+    var rawSelectionEndPos = this.codeMirror.getCursor("to");
+    var rawSelectionEnd = this.codeMirror.indexFromPos(rawSelectionEndPos);
+    var selectionEnd = transformCursor(index, length, rawSelectionEnd);
+    var selectionEndPos = this.codeMirror.posFromIndex(selectionEnd);
 
     this.update();
 
-    //// TODO adapt this to CodeMirror (currently for textarea)
-    //this.codeMirror.setSelectionRange(selectionStart, selectionEnd, selectionDirection);
-
-    // Temporary measure - just preserve the existing cursor.
-    this.codeMirror.setSelection(rawSelectionStartCoords, rawSelectionEndCoords);
+    this.codeMirror.setSelection(selectionStartPos, selectionEndPos);
   } else {
     this.update();
   }
