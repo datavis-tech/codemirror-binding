@@ -1,4 +1,5 @@
 // This file began as a copy of https://github.com/share/text-diff-binding/blob/master/index.js
+// Draws also from https://github.com/ejones/sharedb-codemirror/blob/master/sharedb-codemirror.js
 module.exports = TextDiffBinding;
 
 // Accepts an instance of CodeMirror.

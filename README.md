@@ -1,2 +1,2 @@
 # CodeMirrorBinding
-ShareDB binding for CodeMirror
+ShareDB binding for CodeMirror.
