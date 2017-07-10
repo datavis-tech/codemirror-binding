@@ -87,17 +87,38 @@ function removeCursorTransform(index, length, cursor) {
 }
 
 TextDiffBinding.prototype._transformSelectionAndUpdate = function(index, length, transformCursor) {
-  // TODO adapt this to CodeMirror (currently for textarea)
-  if (document.activeElement === this.codeMirror) {
-  // TODO adapt this to CodeMirror (currently for textarea)
-    var selectionStart = transformCursor(index, length, this.codeMirror.selectionStart);
-  // TODO adapt this to CodeMirror (currently for textarea)
-    var selectionEnd = transformCursor(index, length, this.codeMirror.selectionEnd);
-  // TODO adapt this to CodeMirror (currently for textarea)
-    var selectionDirection = this.codeMirror.selectionDirection;
+  console.log("FDAS")
+  console.log(this.codeMirror.getCursor("from"))
+  console.log(this.codeMirror.getCursor("to"))
+
+  if (this.codeMirror.hasFocus()) {
+
+    var rawSelectionStartCoords = this.codeMirror.getCursor("from");
+
+    // TODO make this work
+    //var rawSelectionStart = cursorCoordsToIndex(rawSelectionStartCoords);
+    //var selectionStart = transformCursor(index, length, rawSelectionStart);
+
+    // TODO adapt this to CodeMirror (currently for textarea)
+    //var selectionStart = transformCursor(index, length, this.codeMirror.selectionStart);
+    //var selectionStart = transformCursor(index, length, this.codeMirror.getCursor("from"));
+
+    // TODO adapt this to CodeMirror (currently for textarea)
+    //var selectionEnd = transformCursor(index, length, this.codeMirror.selectionEnd);
+    //var selectionEnd = transformCursor(index, length, this.codeMirror.getCursor("to"));
+    var rawSelectionEndCoords = this.codeMirror.getCursor("to");
+
+    //// TODO adapt this to CodeMirror (currently for textarea)
+    ////var selectionDirection = this.codeMirror.selectionDirection;
+    //var selectionDirection = "forward";//this.codeMirror.selectionDirection;
+
     this.update();
-  // TODO adapt this to CodeMirror (currently for textarea)
-    this.codeMirror.setSelectionRange(selectionStart, selectionEnd, selectionDirection);
+
+    //// TODO adapt this to CodeMirror (currently for textarea)
+    //this.codeMirror.setSelectionRange(selectionStart, selectionEnd, selectionDirection);
+
+    // Temporary measure - just preserve the existing cursor.
+    this.codeMirror.setSelection(rawSelectionStartCoords, rawSelectionEndCoords);
   } else {
     this.update();
   }
