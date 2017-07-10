@@ -25,7 +25,6 @@ CodeMirrorBinding.prototype.destroy = function() {
 CodeMirrorBinding.prototype.attachElement = function() {
   var binding = this;
   this._inputListener = function() {
-    console.log("HERE")
     binding.onInput();
   };
   this.codeMirror.on('change', this._inputListener);

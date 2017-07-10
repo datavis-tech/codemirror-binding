@@ -106,6 +106,5 @@ TextDiffBinding.prototype._transformSelectionAndUpdate = function(index, length,
 TextDiffBinding.prototype.update = function() {
   var value = this._get();
   if (this._getElementValue() === value) return;
-  // TODO adapt this to CodeMirror (currently for textarea)
-  this.codeMirror.value = value;
+  this.codeMirror.setValue(value);
 };
