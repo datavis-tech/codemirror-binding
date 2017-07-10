@@ -1,0 +1,22 @@
+{
+  "name": "codemirror-binding",
+  "version": "0.0.1",
+  "description": "ShareDB binding for CodeMirror",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/curran/CodeMirrorBinding.git"
+  },
+  "author": "Curran Kelleher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/curran/CodeMirrorBinding/issues"
+  },
+  "homepage": "https://github.com/curran/CodeMirrorBinding#readme",
+  "dependencies": {
+    "text-diff-binding": "^1.1.0"
+  }
+}
