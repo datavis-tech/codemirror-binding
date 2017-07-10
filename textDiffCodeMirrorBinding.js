@@ -19,11 +19,10 @@ TextDiffBinding.prototype._getElementValue = function() {
 };
 
 TextDiffBinding.prototype._getInputEnd = function(previous, value) {
-  // TODO adapt this to CodeMirror (currently for textarea)
-  if (this.codeMirror !== document.activeElement) return null;
-  
-  // TODO adapt this to CodeMirror (currently for textarea)
-  var end = value.length - this.codeMirror.selectionStart;
+  if (!this.codeMirror.hasFocus()) return null;
+  var selectionStartPos = this.codeMirror.getCursor("from");
+  var selectionStart = this.codeMirror.indexFromPos(selectionStartPos);
+  var end = value.length - selectionStart;
   if (end === 0) return end;
   if (previous.slice(previous.length - end) !== value.slice(value.length - end)) return null;
   return end;
