@@ -101,7 +101,7 @@ TextDiffBinding.prototype._transformSelectionAndUpdate = function(index, length,
     var selectionStartPos = this.codeMirror.posFromIndex(selectionStart);
     var selectionEndPos = this.codeMirror.posFromIndex(selectionEnd);
 
-    this.codeMirror.setSelection(selectionStartPos, selectionEndPos);
+    this.codeMirror.setSelection(selectionStartPos, selectionEndPos, { scroll: false });
   } else {
     this.update();
   }
@@ -110,5 +110,9 @@ TextDiffBinding.prototype._transformSelectionAndUpdate = function(index, length,
 TextDiffBinding.prototype.update = function() {
   var value = this._get();
   if (this._getElementValue() === value) return;
+
+  // Set the value, but do not scroll to the top.
+  var scrollInfo = this.codeMirror.getScrollInfo();
   this.codeMirror.setValue(value);
+  this.codeMirror.scrollTo(scrollInfo.left, scrollInfo.top);
 };
