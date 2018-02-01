@@ -91,14 +91,15 @@ TextDiffBinding.prototype._transformSelectionAndUpdate = function(index, length,
     var rawSelectionStartPos = this.codeMirror.getCursor("from");
     var rawSelectionStart = this.codeMirror.indexFromPos(rawSelectionStartPos);
     var selectionStart = transformCursor(index, length, rawSelectionStart);
-    var selectionStartPos = this.codeMirror.posFromIndex(selectionStart);
 
     var rawSelectionEndPos = this.codeMirror.getCursor("to");
     var rawSelectionEnd = this.codeMirror.indexFromPos(rawSelectionEndPos);
     var selectionEnd = transformCursor(index, length, rawSelectionEnd);
-    var selectionEndPos = this.codeMirror.posFromIndex(selectionEnd);
 
     this.update();
+
+    var selectionStartPos = this.codeMirror.posFromIndex(selectionStart);
+    var selectionEndPos = this.codeMirror.posFromIndex(selectionEnd);
 
     this.codeMirror.setSelection(selectionStartPos, selectionEndPos);
   } else {
