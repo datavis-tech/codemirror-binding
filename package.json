@@ -15,8 +15,5 @@
   },
   "homepage": "https://github.com/curran/codemirror-binding#readme",
   "dependencies": {},
-  "devDependencies": {
-    "text-diff-binding": "^1.1.0",
-    "codemirror": "^5.34.0"
-  }
+  "devDependencies": {}
 }
