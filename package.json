@@ -1,6 +1,6 @@
 {
   "name": "codemirror-binding",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "ShareDB binding for CodeMirror",
   "main": "index.js",
   "scripts": {},
