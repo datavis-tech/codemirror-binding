@@ -6,14 +6,14 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/curran/codemirror-binding.git"
+    "url": "git+https://github.com/datavis-tech/codemirror-binding.git"
   },
   "author": "Curran Kelleher",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/curran/codemirror-binding/issues"
+    "url": "https://github.com/datavis-tech/codemirror-binding/issues"
   },
-  "homepage": "https://github.com/curran/codemirror-binding#readme",
+  "homepage": "https://github.com/datavis-tech/codemirror-binding#readme",
   "dependencies": {},
   "devDependencies": {}
 }
