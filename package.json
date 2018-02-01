@@ -17,6 +17,6 @@
   "dependencies": {},
   "devDependencies": {
     "text-diff-binding": "^1.1.0",
-    "codemirror": "^5.27.4"
+    "codemirror": "^5.34.0"
   }
 }
