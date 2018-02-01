@@ -2,6 +2,8 @@
 
 This is a collaborative code editor example, using `codemirror-binding`.
 
+Derived from [Collaborative Textarea with ShareDB](https://github.com/share/sharedb/tree/master/examples/textarea).
+
 ## Install dependencies
 
 ```
